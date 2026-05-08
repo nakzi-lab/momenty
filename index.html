@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Momenty — Google Drive로 가족·지인과 순간을 나누는 공유 앨범 iOS 앱" />
+  <meta name="description" content="Momenty — Google Drive로 가족·지인과 순간을 나누는 공유 앨범 iOS 앱" data-desc-ko="Momenty — Google Drive로 가족·지인과 순간을 나누는 공유 앨범 iOS 앱" data-desc-en="Momenty — Shared photo albums for family and friends on your own Google Drive storage, for iOS." />
   <title>Momenty — Share Your Moments</title>
   <link rel="icon" href="assets/app-icon.png" type="image/png" />
+  <script>
+(function(){var k='momenty.lang';var nav=(navigator.language||navigator.userLanguage||'').toLowerCase().indexOf('ko')===0?'ko':'en';var s=null;try{s=localStorage.getItem(k);}catch(e){}var L=(s==='ko'||s==='en')?s:nav;document.documentElement.setAttribute('data-lang',L);document.documentElement.setAttribute('lang',L);})();
+  </script>
   <style>
     :root {
       --bg: #ffffff;
@@ -18,6 +21,9 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html[data-lang="ko"] .i18n-en { display: none !important; }
+    html[data-lang="en"] .i18n-ko { display: none !important; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -46,6 +52,14 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
     .brand {
@@ -76,6 +90,36 @@
       font-size: 0.9rem;
     }
 
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      font-size: 0.85rem;
+    }
+
+    .lang-btn {
+      background: none;
+      border: 0;
+      color: var(--accent);
+      cursor: pointer;
+      font: inherit;
+      padding: 0.2rem 0.35rem;
+      border-radius: 0.25rem;
+    }
+
+    .lang-btn:hover { text-decoration: underline; }
+
+    .lang-btn.is-active {
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .lang-sep {
+      color: var(--muted);
+      user-select: none;
+    }
+
     .hero {
       padding: 3.5rem 0 2rem;
       text-align: center;
@@ -86,14 +130,14 @@
       font-weight: 700;
       letter-spacing: -0.03em;
       line-height: 1.15;
-      max-width: 18ch;
+      max-width: 22ch;
       margin: 0 auto 1rem;
     }
 
     .hero .lead {
       font-size: 1.125rem;
       color: var(--muted);
-      max-width: 36rem;
+      max-width: 38rem;
       margin: 0 auto 1.75rem;
     }
 
@@ -122,7 +166,7 @@
     .note {
       font-size: 0.8125rem;
       color: var(--muted);
-      max-width: 32rem;
+      max-width: 34rem;
       margin: 0 auto;
     }
 
@@ -171,7 +215,7 @@
       font-size: 0.95rem;
       color: var(--muted);
       margin-bottom: 1.25rem;
-      max-width: 28ch;
+      max-width: 32ch;
     }
 
     .device {
@@ -213,6 +257,34 @@
       margin: 0 auto 1rem;
       line-height: 1.5;
     }
+
+    .ad-contact {
+      padding: 2.5rem 0;
+      background: var(--accent-soft);
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      text-align: center;
+    }
+
+    .ad-contact h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.65rem;
+      color: var(--text);
+    }
+
+    .ad-contact p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 32rem;
+      margin: 0 auto;
+      line-height: 1.55;
+    }
+
+    .ad-contact a.email {
+      font-weight: 600;
+      color: var(--accent);
+    }
   </style>
 </head>
 <body>
@@ -222,27 +294,48 @@
         <img src="assets/app-icon.png" alt="" width="40" height="40" />
         <div>
           <div class="brand-title">Momenty</div>
-          <div class="brand-tag">Share Your Moments</div>
+          <div class="brand-tag"><span class="i18n-ko">순간을 나눠요</span><span class="i18n-en">Share Your Moments</span></div>
         </div>
       </div>
-      <nav class="nav-links">
-        <a href="privacy.html">개인정보처리방침</a>
-      </nav>
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="lang-btn" data-set-lang="ko" aria-pressed="false">한국어</button>
+          <span class="lang-sep" aria-hidden="true">|</span>
+          <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">English</button>
+        </div>
+        <nav class="nav-links">
+          <a href="privacy.html" class="i18n-ko">개인정보처리방침</a>
+          <a href="privacy.html" class="i18n-en">Privacy Policy</a>
+        </nav>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="wrap">
-        <h1>Connecting moments, capturing us.</h1>
+        <h1>
+          <span class="i18n-ko">순간을 잇고, 우리를 담아요.</span>
+          <span class="i18n-en">Connecting moments, capturing us.</span>
+        </h1>
         <p class="lead">
-          Google Drive에 함께 모으고, 각자의 클라우드 용량으로 고화질 사진과 영상을 쉽게 나눠 보세요.
+          <span class="i18n-ko">Google Drive에 함께 모으고, 각자의 클라우드 용량으로 고화질 사진과 영상을 쉽게 나눠 보세요.</span>
+          <span class="i18n-en">Collect photos together on Google Drive and share high‑quality images and videos using each person’s own cloud storage.</span>
         </p>
         <div class="store-wrap">
-          <!-- TODO: App Store 출시 후 아래 href의 YOUR_APP_ID 를 실제 앱 ID로 교체하세요. -->
-          <a href="https://apps.apple.com/app/idYOUR_APP_ID" aria-label="App Store에서 다운로드">
+          <!-- TODO: Replace idYOUR_APP_ID with your real App Store app ID before release. -->
+          <a href="https://apps.apple.com/app/idYOUR_APP_ID" class="i18n-ko" aria-label="App Store에서 Momenty 다운로드">
             <img
               src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ko-kr?size=250x83"
+              alt="App Store에서 다운로드"
+              width="250"
+              height="83"
+              loading="lazy"
+            />
+          </a>
+          <a href="https://apps.apple.com/app/idYOUR_APP_ID" class="i18n-en" aria-label="Download Momenty on the App Store">
+            <img
+              src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
               alt="Download on the App Store"
               width="250"
               height="83"
@@ -251,22 +344,27 @@
           </a>
         </div>
         <p class="note">
-          사진과 앨범은 Momenty 자체 서버가 아닌, 연결된 Google 계정의 Drive 저장공간에 보관됩니다.
+          <span class="i18n-ko">사진과 앨범은 Momenty 자체 서버가 아닌, 연결된 Google 계정의 Drive에 보관됩니다.</span>
+          <span class="i18n-en">Photos and albums are stored in your linked Google account’s Drive — not on Momenty‑owned servers.</span>
         </p>
       </div>
     </section>
 
-    <section class="features" aria-labelledby="features-heading">
+    <section class="features" aria-labelledby="features-ko features-en">
       <div class="wrap">
-        <h2 id="features-heading">Momenty로 할 수 있는 일</h2>
+        <h2 id="features-ko" class="i18n-ko">Momenty로 할 수 있는 일</h2>
+        <h2 id="features-en" class="i18n-en">What you can do with Momenty</h2>
         <div class="grid">
           <article class="card">
-            <h3>간편한 시작</h3>
-            <p>Google로 로그인하고 바로 초대 링크로 앨범에 참여할 수 있어요.</p>
+            <h3><span class="i18n-ko">간편한 시작</span><span class="i18n-en">Get started easily</span></h3>
+            <p>
+              <span class="i18n-ko">Google로 로그인하고 바로 초대 링크로 앨범에 참여할 수 있어요.</span>
+              <span class="i18n-en">Sign in with Google and join an album instantly via invite link.</span>
+            </p>
             <div class="device">
               <img
                 src="assets/Apple_iPhone_16_Pro_Max_Screenshot_1-8848d97d-f622-4af3-be88-fd4334a1a385.png"
-                alt="로그인 및 소개 화면"
+                alt=""
                 width="1290"
                 height="2796"
                 loading="lazy"
@@ -274,12 +372,15 @@
             </div>
           </article>
           <article class="card">
-            <h3>내 Drive 용량 그대로</h3>
-            <p>스토리지 사용량을 한눈에 확인하고, 필요할 때 확장으로 이어갈 수 있어요.</p>
+            <h3><span class="i18n-ko">내 Drive 용량 그대로</span><span class="i18n-en">Your Drive storage</span></h3>
+            <p>
+              <span class="i18n-ko">스토리지 사용량을 한눈에 확인하고, 필요할 때 확장으로 이어갈 수 있어요.</span>
+              <span class="i18n-en">See how much space you use and jump to expand storage when you need to.</span>
+            </p>
             <div class="device">
               <img
                 src="assets/Apple_iPhone_16_Pro_Max_Screenshot_2-4614d928-983f-48e4-a025-cf0b21b5bb6b.png"
-                alt="Google Drive 저장공간 화면"
+                alt=""
                 width="1290"
                 height="2796"
                 loading="lazy"
@@ -287,12 +388,15 @@
             </div>
           </article>
           <article class="card">
-            <h3>링크 하나로 초대</h3>
-            <p>가족·친구에게 초대 링크를 복사하거나 다른 앱으로 공유하세요.</p>
+            <h3><span class="i18n-ko">링크 하나로 초대</span><span class="i18n-en">Invite with one link</span></h3>
+            <p>
+              <span class="i18n-ko">가족·친구에게 초대 링크를 복사하거나 다른 앱으로 공유하세요.</span>
+              <span class="i18n-en">Copy an invite link or share it through other apps.</span>
+            </p>
             <div class="device">
               <img
                 src="assets/Apple_iPhone_16_Pro_Max_Screenshot_3-79e9f74f-71bc-412b-b2fd-18e667f2a50a.png"
-                alt="초대 링크 공유 화면"
+                alt=""
                 width="1290"
                 height="2796"
                 loading="lazy"
@@ -300,12 +404,15 @@
             </div>
           </article>
           <article class="card">
-            <h3>앨범을 한곳에서</h3>
-            <p>공유 앨범을 모아 보고, 새 미디어를 빠르게 찾을 수 있어요.</p>
+            <h3><span class="i18n-ko">앨범을 한곳에서</span><span class="i18n-en">Albums in one place</span></h3>
+            <p>
+              <span class="i18n-ko">공유 앨범을 모아 보고, 새 미디어를 빠르게 찾을 수 있어요.</span>
+              <span class="i18n-en">Keep shared albums together and spot new media at a glance.</span>
+            </p>
             <div class="device">
               <img
                 src="assets/Apple_iPhone_16_Pro_Max_Screenshot_4-a35601bf-5af4-4ea4-bdf5-6eee13a78c50.png"
-                alt="앨범 목록 화면"
+                alt=""
                 width="1290"
                 height="2796"
                 loading="lazy"
@@ -313,12 +420,15 @@
             </div>
           </article>
           <article class="card">
-            <h3>압축 없이 디테일까지</h3>
-            <p>고해상도 사진과 4K 영상도 자연스럽게 감상해 보세요.</p>
+            <h3><span class="i18n-ko">압축 없이 디테일까지</span><span class="i18n-en">Rich detail, less compromise</span></h3>
+            <p>
+              <span class="i18n-ko">고해상도 사진과 4K 영상도 자연스럽게 감상해 보세요.</span>
+              <span class="i18n-en">Enjoy high‑resolution photos and 4K video with a clean, focused viewer.</span>
+            </p>
             <div class="device">
               <img
                 src="assets/Apple_iPhone_16_Pro_Max_Screenshot_5-825a88f0-d008-4200-8ac6-fd3e85aba9cb.png"
-                alt="사진 상세 보기"
+                alt=""
                 width="1290"
                 height="2796"
                 loading="lazy"
@@ -326,12 +436,15 @@
             </div>
           </article>
           <article class="card">
-            <h3>원본에 가까운 품질</h3>
-            <p>그리드에서도 색과 질감을 살려 추억을 옮겨 담을 수 있어요.</p>
+            <h3><span class="i18n-ko">원본에 가까운 품질</span><span class="i18n-en">Close to original quality</span></h3>
+            <p>
+              <span class="i18n-ko">그리드에서도 색과 질감을 살려 추억을 옮겨 담을 수 있어요.</span>
+              <span class="i18n-en">Your grid keeps color and texture so moments feel true to life.</span>
+            </p>
             <div class="device">
               <img
                 src="assets/Apple_iPhone_16_Pro_Max_Screenshot_6-108bf77a-cff5-40cc-96e9-be5372b57d8d.png"
-                alt="사진 그리드 화면"
+                alt=""
                 width="1290"
                 height="2796"
                 loading="lazy"
@@ -341,20 +454,54 @@
         </div>
       </div>
     </section>
+
+    <section class="ad-contact" aria-labelledby="ad-contact-ko ad-contact-en">
+      <div class="wrap">
+        <h2 id="ad-contact-ko" class="i18n-ko">광고·제휴 문의</h2>
+        <h2 id="ad-contact-en" class="i18n-en">Advertising &amp; partnerships</h2>
+        <p class="i18n-ko">
+          앱 내 광고·스폰서십·기타 제휴에 관한 문의는 아래 메일로 보내 주세요.
+          <a class="email" href="mailto:nakzi.lab@gmail.com?subject=%5BMomenty%5D%20%EA%B4%91%EA%B3%A0%20%EB%AC%B8%EC%9D%98">nakzi.lab@gmail.com</a>
+        </p>
+        <p class="i18n-en">
+          For in‑app advertising, sponsorships, or other partnerships, reach us at
+          <a class="email" href="mailto:nakzi.lab@gmail.com?subject=%5BMomenty%5D%20Advertising%20inquiry">nakzi.lab@gmail.com</a>.
+        </p>
+      </div>
+    </section>
   </main>
 
   <footer>
     <div class="wrap">
       <p class="policy-note">
-        심사·투명성: 미디어는 Momenty 자체 서버가 아닌 이용자의 Google Drive에 저장됩니다.
-        Google 로그인·Drive API 범위, 사진 라이브러리(선택), 맞춤 광고(ATT)·AdMob, 로컬 알림·백그라운드 확인은
-        <a href="privacy.html">개인정보처리방침</a>에 상세히 두었습니다.
+        <span class="i18n-ko">심사·투명성: 미디어는 Momenty 자체 서버가 아닌 이용자의 Google Drive에 저장됩니다. Google 로그인·Drive API 범위, 사진 라이브러리(선택), 맞춤 광고(ATT)·AdMob, 로컬 알림·백그라운드 확인은 <a href="privacy.html">개인정보처리방침</a>에 상세히 두었습니다.</span>
+        <span class="i18n-en">Transparency: media is stored in <strong>your</strong> Google Drive, not on Momenty‑operated servers. Details on Google Sign‑In, Drive API scopes, optional photo library access, personalized ads (ATT) &amp; AdMob, and local notifications are in our <a href="privacy.html">Privacy Policy</a>.</span>
       </p>
       <div class="links">
-        <a href="privacy.html">개인정보처리방침</a>
+        <a href="privacy.html" class="i18n-ko">개인정보처리방침</a>
+        <a href="privacy.html" class="i18n-en">Privacy Policy</a>
       </div>
-      <p>© Momenty. All rights reserved.</p>
+      <p>© Momenty. <span class="i18n-ko">모든 권리 보유.</span><span class="i18n-en">All rights reserved.</span></p>
     </div>
   </footer>
+
+  <script src="lang.js"></script>
+  <script>
+    window.momentyOnLangChange = function (lang) {
+      var meta = document.querySelector('meta[name="description"]');
+      if (meta) {
+        var t = meta.getAttribute(lang === "ko" ? "data-desc-ko" : "data-desc-en");
+        if (t) meta.setAttribute("content", t);
+      }
+      document.title = lang === "ko" ? "Momenty — 순간을 나눠요" : "Momenty — Share Your Moments";
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", function () {
+        window.momentyOnLangChange(document.documentElement.getAttribute("data-lang") || "ko");
+      });
+    } else {
+      window.momentyOnLangChange(document.documentElement.getAttribute("data-lang") || "ko");
+    }
+  </script>
 </body>
 </html>

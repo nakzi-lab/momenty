@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Momenty 개인정보처리방침 — Google 로그인, Drive, 광고(AdMob), 로컬 알림" />
+  <meta name="description" content="Momenty 개인정보처리방침 — Google 로그인, Drive, 광고(AdMob), 로컬 알림" data-desc-ko="Momenty 개인정보처리방침 — Google 로그인, Drive, 광고(AdMob), 로컬 알림" data-desc-en="Momenty Privacy Policy — Google Sign-In, Drive, ads (AdMob), local notifications." />
   <title>개인정보처리방침 — Momenty</title>
   <link rel="icon" href="assets/app-icon.png" type="image/png" />
+  <script>
+(function(){var k='momenty.lang';var nav=(navigator.language||navigator.userLanguage||'').toLowerCase().indexOf('ko')===0?'ko':'en';var s=null;try{s=localStorage.getItem(k);}catch(e){}var L=(s==='ko'||s==='en')?s:nav;document.documentElement.setAttribute('data-lang',L);document.documentElement.setAttribute('lang',L);})();
+  </script>
   <style>
     :root {
       --text: #1d1d1f;
@@ -13,6 +16,9 @@
       --accent: #007aff;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html[data-lang="ko"] .i18n-en { display: none !important; }
+    html[data-lang="en"] .i18n-ko { display: none !important; }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background: #fff;
@@ -23,10 +29,41 @@
     }
     .wrap { max-width: 760px; margin: 0 auto; }
     a { color: var(--accent); }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      font-size: 0.85rem;
+    }
+    .lang-btn {
+      background: none;
+      border: 0;
+      color: var(--accent);
+      cursor: pointer;
+      font: inherit;
+      padding: 0.2rem 0.35rem;
+      border-radius: 0.25rem;
+    }
+    .lang-btn:hover { text-decoration: underline; }
+    .lang-btn.is-active {
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .lang-sep { color: var(--muted); user-select: none; }
+
     header { margin-bottom: 2rem; }
     header h1 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
     .meta { color: var(--muted); font-size: 0.9rem; }
-    nav.back { margin-bottom: 1.5rem; font-size: 0.95rem; }
+    nav.back { font-size: 0.95rem; margin-bottom: 0.5rem; }
     h2 {
       font-size: 1.05rem;
       font-weight: 600;
@@ -55,17 +92,31 @@
       background: #fafafa;
     }
     hr.sep { border: 0; border-top: 1px solid rgba(0,0,0,0.08); margin: 2.5rem 0; }
-    .en { font-size: 0.92rem; color: #333; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <nav class="back"><a href="index.html">← Momenty 홈</a></nav>
+    <div class="topbar">
+      <nav class="back">
+        <a href="index.html" class="i18n-ko">← Momenty 홈</a>
+        <a href="index.html" class="i18n-en">← Momenty home</a>
+      </nav>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" class="lang-btn" data-set-lang="ko" aria-pressed="false">한국어</button>
+        <span class="lang-sep" aria-hidden="true">|</span>
+        <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">English</button>
+      </div>
+    </div>
+
     <header>
-      <h1>개인정보처리방침</h1>
-      <p class="meta">Momenty 모바일 애플리케이션 및 관련 웹 안내 페이지(이하 “본 서비스”) · 시행일: 2026년 5월 8일</p>
+      <h1><span class="i18n-ko">개인정보처리방침</span><span class="i18n-en">Privacy Policy</span></h1>
+      <p class="meta">
+        <span class="i18n-ko">Momenty 모바일 애플리케이션 및 관련 웹 안내 페이지(이하 “본 서비스”) · 시행일: 2026년 5월 8일</span>
+        <span class="i18n-en">Momenty mobile application and related website (the “Service”) · Effective: May 8, 2026</span>
+      </p>
     </header>
 
+    <div class="i18n-ko">
     <h2>개인정보처리자 및 문의</h2>
     <p>
       <strong>개인정보처리자</strong>: Momenty 앱 운영자(이하 “운영자”). 본 서비스는 법인 명의가 별도 표기되지 않는 경우,
@@ -204,24 +255,163 @@
       본 정적 웹 페이지는 일반적으로 브라우저 쿠키를 통해 이용자를 본 서비스에 로그인 상태로 유지하지 않습니다.
     </p>
 
-    <hr class="sep" />
-
-    <h2>부록: English summary (for store / OAuth disclosure)</h2>
-    <div class="en">
-      <p><strong>Controller / contact:</strong> Momenty app operator — <a href="mailto:nakzi.lab@gmail.com">nakzi.lab@gmail.com</a>.</p>
-      <p><strong>No developer-owned media server:</strong> photos and videos you upload are stored in <strong>your Google Drive</strong> (Google account). We do not operate a separate Momenty backend that stores your library.</p>
-      <p><strong>Google Sign-In &amp; Drive:</strong> we use Google OAuth and may request the scope <span class="mono">https://www.googleapis.com/auth/drive</span> so the app can create/join shared album folders, upload, list, and manage files as needed for Momenty.</p>
-      <p><strong>Limited use of Google user data:</strong> we comply with the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including Allowed Use restrictions; we do not sell Google user data or use it for unrelated profiling.</p>
-      <p><strong>Ads &amp; measurement:</strong> Google AdMob and ad partners may process device/ad identifiers and related data. On iOS we may request <strong>App Tracking Transparency</strong> permission for personalized ads where applicable.</p>
-      <p><strong>Local notifications &amp; background refresh:</strong> optional feature checks your joined albums via Google APIs on the device/background opportunities and shows <strong>local</strong> notifications; this is not sent to a Momenty server.</p>
-      <p><strong>Photo library:</strong> access when <strong>you</strong> pick media to upload; add-to-library permission when you save to the camera roll, as prompted by the system.</p>
-      <p><strong>Your controls:</strong> revoke Google access in Google Account settings; use in-app delete/logout where available; adjust tracking &amp; privacy settings in iOS.</p>
-      <p><strong>Effective date:</strong> May 8, 2026.</p>
-    </div>
-
     <p class="muted" style="margin-top:2rem">
       과거 Notion 등에 게시된 안내와 내용이 상충하면, <strong>본 페이지의 최신 본문</strong>을 우선합니다.
     </p>
+    </div>
+
+    <div class="i18n-en">
+    <h2>Controller &amp; contact</h2>
+    <p>
+      <strong>Controller</strong>: the operator of the Momenty app (“we” / “us”). If no separate legal entity is named for the Service,
+      the contact below is the primary channel for privacy inquiries and complaints.
+    </p>
+    <ul>
+      <li>Email: <a href="mailto:nakzi.lab@gmail.com">nakzi.lab@gmail.com</a></li>
+    </ul>
+    <p class="muted">
+      This Policy is written to reflect transparency expectations for Apple App Store and Google (Sign-In / Google APIs) review.
+    </p>
+
+    <h2>1. Scope</h2>
+    <p>
+      This Policy applies to the Momenty iOS app, App Store privacy disclosures, and information practices described on this website.
+      <strong>Partner services</strong> — including Google Account, Google Drive, and Google advertising (AdMob) — are also governed by those providers’ policies.
+    </p>
+    <ul>
+      <li><a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google Privacy Policy</a></li>
+      <li><a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer">Google Partners (ads)</a></li>
+      <li><a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener noreferrer">Google API Services User Data Policy</a></li>
+    </ul>
+
+    <h2>2. Categories of information &amp; purposes</h2>
+    <p>We process information only as needed for the purposes below. <strong>We do not store your photo or video originals on Momenty-operated servers.</strong> Media you add through the app is kept in <strong>your Google Drive</strong> (your Google account).</p>
+    <ul>
+      <li><strong>Account &amp; cloud</strong>: Sign in with Google (OAuth), session, Drive access</li>
+      <li><strong>Shared albums</strong>: listing folders/files, upload, download, delete, and related metadata for sharing and permissions</li>
+      <li><strong>On-device media (optional)</strong>: media you pick in the system picker to upload; <strong>add-only</strong> photo library access when you save to your camera roll where the app offers that feature</li>
+      <li><strong>Local notifications &amp; background work</strong>: if you turn this on, the app may query Google Drive within limits iOS allows to detect “new media” and show <strong>local</strong> notifications — we do not send that content to Momenty-operated servers</li>
+      <li><strong>Ads &amp; measurement</strong>: ads via Google AdMob and partner networks, delivery &amp; response measurement, Apple’s App Tracking Transparency (ATT) choice, SKAdNetwork and similar aggregated attribution</li>
+    </ul>
+    <p class="muted">We do not integrate a separate remote crash/analytics SDK that continuously ships diagnostic data to our own backend (partner ads and Google services follow their own policies).</p>
+
+    <h2>3. Google account, Drive &amp; OAuth scope</h2>
+    <p>
+      The app uses Google Sign-In and Google Drive APIs. To join folders shared via invite links and let participants upload and browse shared albums, we request consent as described by Google and may request this scope:
+    </p>
+    <div class="box">
+      <p class="mono" style="margin-bottom:0.5rem">https://www.googleapis.com/auth/drive</p>
+      <p class="muted" style="margin-bottom:0">
+        Drive API access needed for link-based shared folders and album workflows. We do not sell your content or use it for unrelated browsing without your consent.
+      </p>
+    </div>
+    <p>At sign-in, Google’s SDK may provide identifiers needed for your session plus <strong>email and basic profile</strong> fields as offered by Google.</p>
+
+    <h2>4. Limited use of Google user data</h2>
+    <p>
+      We use information from Google APIs and Google Sign-In in line with the <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener noreferrer">Google API Services User Data Policy</a>, including Allowed Use limits.
+      In particular, we do <strong>not</strong> sell or rent Google user data from these sources, or use it for unrelated profiling across products in ways users would not reasonably expect.
+      (Ad identifiers and AdMob processing follow Google’s advertising rules; this section concerns <strong>Google account / Drive API</strong> data.)
+    </p>
+
+    <h2>5. Retention</h2>
+    <ul>
+      <li><strong>Files &amp; metadata on Google Drive</strong>: governed by your Google account; deletion or revoking access may be irreversible.</li>
+      <li><strong>On-device app data</strong> (settings, last viewed times, notification/background state): generally removed when you delete the app or app data.</li>
+      <li><strong>Ad-related data</strong>: per Google AdMob and partner policies.</li>
+    </ul>
+
+    <h2>6. Disclosure to third parties</h2>
+    <p>
+      We do <strong>not</strong> sell your albums or charge third parties for your photos/videos, or freely hand them to unrelated marketers.
+      Google and ad partners <strong>process</strong> data to deliver authentication, cloud storage, and ads, as described under international transfers and processors below.
+    </p>
+
+    <h2>7. International transfers</h2>
+    <p>
+      We use cloud, authentication, and advertising systems operated by companies such as <strong>Google LLC</strong> that may process data in countries outside your own (including the United States).
+      See <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google’s Privacy Policy</a> for how Google describes transfers and safeguards.
+    </p>
+
+    <h2>8. Processors &amp; partner services</h2>
+    <p>We rely on processors (or comparable partner infrastructure) such as:</p>
+    <ul>
+      <li><strong>Google LLC (Alphabet Inc.)</strong>: Google Account sign-in, Google Drive storage and Drive API processing</li>
+      <li><strong>Google AdMob and ad/measurement partners</strong>: ad serving, measurement, fraud prevention, SKAdNetwork, etc.</li>
+    </ul>
+    <p class="muted">Details may evolve; where required by law we will provide notice or obtain consent.</p>
+
+    <h2>9. Your rights &amp; controls</h2>
+    <p>Depending on your region, you may have rights to access, correct, delete, restrict, or object to certain processing. You can also:</p>
+    <ul>
+      <li><strong>Revoke Google access</strong> in your Google Account security / third-party app settings</li>
+      <li><strong>Delete &amp; sign out in-app</strong>: use <strong>Settings &gt; Delete All Data &amp; Logout</strong> (or similarly named) to remove uploaded media per in-app guidance and end the local session</li>
+      <li><strong>Tracking &amp; ads</strong>: use iOS <strong>Settings → Privacy &amp; Security → Tracking</strong> and partner ad settings described in their policies</li>
+      <li><strong>Contact us</strong> at the email above for privacy requests (response subject to applicable law)</li>
+    </ul>
+
+    <h2>10. Deletion</h2>
+    <p>
+      We delete information we hold when it is no longer needed for the purposes above. Drive files follow your and Google’s actions; on-device data can be erased by removing the app or its data. Legal retention requirements may apply in limited cases.
+    </p>
+
+    <h2>11. Security</h2>
+    <p>
+      We use appropriate technical and organizational measures (such as encryption in transit where applicable, careful use of OS and SDK security practices) to protect information.
+      No method is 100% secure; please protect your Google account and device passcode.
+    </p>
+
+    <h2>12. Tracking, ATT &amp; ads</h2>
+    <p>
+      For personalized ads we may request <strong>App Tracking Transparency</strong> permission on iOS. If you decline or limit tracking, you may still see <strong>non-personalized or limited</strong> ads.
+      Ad partners may process identifiers, IP address, and ad interaction signals per their policies and your device settings.
+    </p>
+
+    <h2>13. Children</h2>
+    <p>
+      The Service is not directed to young children, and we do not knowingly collect personal information from children below the minimum age required in your region (for example, under 13 in the U.S. under COPPA, or the age set in Korean law for domestic users).
+      If you believe a child has provided data, contact us using the email above.
+    </p>
+
+    <h2>14. Remedies &amp; supervisory authorities</h2>
+    <p><strong>Republic of Korea:</strong> you may contact the Korea Internet &amp; Security Agency (KISA) Personal Information Infringement Report Center (118), the Personal Information Dispute Mediation Committee, or law enforcement cyber units as listed in the Korean version of this Policy.</p>
+    <p><strong>EEA, UK, and other regions:</strong> you may lodge a complaint with your local data protection authority.</p>
+
+    <h2>15. Changes</h2>
+    <p>
+      We may update this Policy for legal, regulatory, or product reasons. We will post the revised Policy on this page and adjust the effective date. Platform rules (Apple, Google) may require additional disclosures elsewhere.
+    </p>
+
+    <h2>16. Other (deep links &amp; site)</h2>
+    <p>
+      Invite flows may use the custom URL scheme <span class="mono">momenty://</span>. Only parameters needed to complete invites and app features are processed.
+      This static site does not use cookies to keep you logged in to Momenty in the browser.
+    </p>
+
+    <p class="muted" style="margin-top:2rem">
+      If an older copy (for example on Notion) conflicts with this page, <strong>the latest text here</strong> prevails.
+    </p>
+    </div>
   </div>
+
+  <script src="lang.js"></script>
+  <script>
+    window.momentyOnLangChange = function (lang) {
+      var meta = document.querySelector('meta[name="description"]');
+      if (meta) {
+        var t = meta.getAttribute(lang === "ko" ? "data-desc-ko" : "data-desc-en");
+        if (t) meta.setAttribute("content", t);
+      }
+      document.title =
+        lang === "ko" ? "개인정보처리방침 — Momenty" : "Privacy Policy — Momenty";
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", function () {
+        window.momentyOnLangChange(document.documentElement.getAttribute("data-lang") || "ko");
+      });
+    } else {
+      window.momentyOnLangChange(document.documentElement.getAttribute("data-lang") || "ko");
+    }
+  </script>
 </body>
 </html>
